@@ -18,8 +18,10 @@ app.use(express.json());
 
 app.use("/api/send-email", sendEmailRoute);
 
-app.listen(process.env.PORT, () => {
+const PORT = process.env.PORT || 4100;
 
-console.log("Email service running on", process.env.PORT);
+app.listen(PORT, () => {
+
+console.log("Email service running on", PORT);
 
 });
