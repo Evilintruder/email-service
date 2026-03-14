@@ -30,7 +30,7 @@ buttonLink
 
 await transporter.sendMail({
 
-from: `"Morgan Ticket" <${process.env.SMTP_USER}>`,
+from: "services@morganticket.site",
 
 to: customerEmail,
 
