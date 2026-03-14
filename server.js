@@ -7,7 +7,13 @@ const sendEmailRoute = require("./routes/sendEmail");
 
 const app = express();
 
-app.use(cors());
+app.use(cors({
+  origin: [
+    "http://127.0.0.1:5500",
+    "http://localhost:5500",
+    "https://morganticket.site"
+  ]
+}));
 app.use(express.json());
 
 app.use("/api/send-email", sendEmailRoute);
