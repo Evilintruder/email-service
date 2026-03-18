@@ -1,3 +1,4 @@
+// companyEmail.js
 function companyEmail({ message, buttonLink }) {
 
 return `

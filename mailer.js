@@ -1,19 +1,7 @@
-const nodemailer = require("nodemailer");
+//Mailer.js
+const sgMail = require("@sendgrid/mail");
 require("dotenv").config();
 
-const transporter = nodemailer.createTransport({
+sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 
-  host: process.env.SMTP_HOST,
-
-  port: process.env.SMTP_PORT,
-
-  secure: false,
-
-  auth: {
-    user: process.env.SMTP_USER,
-    pass: process.env.SMTP_PASS
-  }
-
-});
-
-module.exports = transporter;
+module.exports = sgMail;

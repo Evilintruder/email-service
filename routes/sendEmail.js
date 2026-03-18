@@ -1,7 +1,8 @@
+// routes/sendEmail.js
 const express = require("express");
 const router = express.Router();
 
-const transporter = require("../mailer");
+const sgMail = require("../mailer");
 const companyEmail = require("../templates/companyEmail");
 
 router.post("/", async (req,res)=>{
@@ -28,18 +29,12 @@ message,
 buttonLink
 });
 
-await transporter.sendMail({
-
-from: `"Morgan Ticket" <${process.env.SMTP_USER}>`,
-
-to: customerEmail,
-
-cc: process.env.ADMIN_COPY_EMAIL,
-
-subject: subject,
-
-html: html
-
+await sgMail.send({
+  from: `"Morgan Ticket" <tickets@morganticket.site>`,
+  to: customerEmail,
+  cc: process.env.ADMIN_COPY_EMAIL,
+  subject: subject,
+  html: html
 });
 
 res.json({success:true});
