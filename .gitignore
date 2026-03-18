@@ -1,4 +1,2 @@
 .env
-ADMIN_COPY_EMAIL=mail@morganticket.site
-ADMIN_SECRET=88888888
-PORT=4100
+node_modules/
